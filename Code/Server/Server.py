@@ -124,7 +124,7 @@ class Server:
         except Exception as e:
             print(e)
     def battery_reminder(self):
-        if max(self.battery_voltage) < 6.4:
+        if max(self.battery_voltage) < 4.3:
             self.turn_off_server()
             self.control.relax(True)
             print("The batteries power are too low. Please recharge the batteries or replace batteries.")
@@ -149,7 +149,7 @@ class Server:
                 #print(allData)
             except:
                 if self.tcp_flag:
-                    if max(self.battery_voltage) > 6.4:
+                    if max(self.battery_voltage) > 4.3:
                         self.reset_server()
                     break
                 else:
